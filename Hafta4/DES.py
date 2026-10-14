@@ -1,6 +1,3 @@
-# --- YARDIMCI FONKSİYONLAR (Tablo ve Permütasyon İşlemleri) ---
-# Gerçek bir DES algoritmasında bu fonksiyonların içinde standart DES tabloları bulunur.
-
 def string_to_binary_blocks(message):
     # Metni 8 byte'lık (64 bit) bloklara böler ve binary formata çevirir
     return ["01010101..."] # Örnek 64-bit string listesi döner
@@ -43,9 +40,6 @@ def pc2_compression(key_56bit):
     return "0" * 48 # 56 biti 48 bite düşürür
 
 
-# =====================================================================
-# Görsel 2: DES Pseudo Kod (BlokKeyFunc)
-# =====================================================================
 def BlokKeyFunc(key_64bit):
     round_keys = []
     
@@ -79,9 +73,6 @@ def BlokKeyFunc(key_64bit):
     return round_keys
 
 
-# =====================================================================
-# Görsel 1: DES Pseudo Kod (Ana Fonksiyon)
-# =====================================================================
 def DES_Ana_Fonksiyon(mesaj, key_64bit):
     # Anahtar üretici fonksiyonu çağırıp 16 adet tur anahtarını alıyoruz
     tur_anahtarlari = BlokKeyFunc(key_64bit)
@@ -147,7 +138,7 @@ def DES_Ana_Fonksiyon(mesaj, key_64bit):
         
     return binary_to_string(sifreli_bloklar)
 
-# Örnek Kullanım:
+
 anahtar = "0101010101010101010101010101010101010101010101010101010101010101" # 64-bit rastgele key
 mesaj = "KonakMYO35" # Şifrelenecek mesaj
 sifreli_mesaj = DES_Ana_Fonksiyon(mesaj, anahtar)
